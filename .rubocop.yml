@@ -1,0 +1,35 @@
+AllCops:
+  NewCops: enable
+
+Style/Encoding:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 130
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 25
+
+Style/SymbolArray:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Max: 1000
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Metrics/ClassLength:
+  Max: 400
+
+Metrics/AbcSize:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
