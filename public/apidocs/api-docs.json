@@ -4,6 +4,10 @@
   "basePath": "http://localhost:3000",
   "apis": [
     {
+      "path": "/apidocs/api/v1/checkup_appointments.{format}",
+      "description": "Appointment"
+    },
+    {
       "path": "/apidocs/api/v1/sessions.{format}",
       "description": "Session"
     }

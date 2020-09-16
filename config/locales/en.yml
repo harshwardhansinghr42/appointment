@@ -33,3 +33,5 @@ en:
   hello: "Hello world"
   users:
     unauthenticated: "Invalid Credentials"
+  checkup_appointments:
+    created: "Appointment created successfully!"
