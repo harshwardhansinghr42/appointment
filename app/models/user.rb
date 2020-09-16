@@ -6,4 +6,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :validatable
 
   has_many :checkup_appointments
+  has_many :whitelisted_jwts, as: :userable
 end

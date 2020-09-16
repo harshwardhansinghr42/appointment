@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_15_113400) do
+ActiveRecord::Schema.define(version: 2020_09_15_173355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 2020_09_15_113400) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  create_table "whitelisted_jwts", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.string "jti", null: false
+    t.string "userable_type", null: false
+    t.uuid "userable_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["jti"], name: "index_whitelisted_jwts_on_jti", unique: true
   end
 
   add_foreign_key "checkup_appointments", "doctors"
