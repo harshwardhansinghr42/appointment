@@ -43,10 +43,12 @@ class Api::V1::CheckupAppointmentsController < Api::V1::ApplicationController
 
   private
 
+  # checkup_appointment object
   def checkup_appointment
     @checkup_appointment ||= CheckupAppointment.find(params[:id])
   end
 
+  # filter appointments by booked or free status
   def appointment_by_status(appointments)
     if params[:booked] == 'true'
       appointments.booked
@@ -55,6 +57,8 @@ class Api::V1::CheckupAppointmentsController < Api::V1::ApplicationController
     end
   end
 
+  # filter appointments for a particular day or
+  # in between two dates (consider this for fetching data for a week)
   def appointments_by_time_span(appointments)
     start_time = DateTime.parse(params[:start_date])
     end_time = if params[:start_date].present? && params[:end_date].present?
@@ -65,6 +69,7 @@ class Api::V1::CheckupAppointmentsController < Api::V1::ApplicationController
     appointments.where('start_time >= ? AND end_time < ?', start_time, end_time)
   end
 
+  # filter appointments by doctor
   def appointments_by_doctor(appointments)
     appointments = appointments.where(doctor_id: params[:doctor_id]) unless params[:doctor_id].blank?
     appointments
